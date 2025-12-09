@@ -16,6 +16,7 @@ export class Personajes {
   idActualizacion:  string | null = null;
   modalEliminar: boolean = false;
   modalEditar: boolean = false;
+  personajeSeleccionado: any = null;
 
   //faromulario reactivo
   fb = inject(FormBuilder);
@@ -34,11 +35,20 @@ export class Personajes {
    }
 
 
-   abrirModalEliminar(id: string){
-
+   abrirModalEliminar(personaje: any){
+    this.personajeSeleccionado= personaje;
+    this.modalEliminar==true;
    }
-   abrirModalActualizar(id: string){
+   abrirModalActualizar(personaje: any){
+    this.personajeSeleccionado= personaje;
+    this.modalEditar==false;
+   }
 
+   cerrarModalE(){
+    this.modalEliminar=false;
+   }
+   cerrarModalA(){
+    this.modalEditar=false;
    }
 
 

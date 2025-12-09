@@ -113,8 +113,8 @@
       <td>{{ p.sexo }}</td>
       <td>{{ p.habilidades }}</td>
       <td>
-        <button (click)="actualizarPersonaje(p)">Editar</button>
-        <button (click)="eliminarPersonaje(p._id!)">Eliminar</button>
+        <button (click)="abrirModalActualizar(p)">Editar</button>
+        <button (click)="abrirModalEliminar(p)">Eliminar</button>
       </td>
     </tr>
   </table>
@@ -124,8 +124,8 @@
   <!-- Button trigger modal -->
 
 <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div *ngIf="modalEliminar==true" class="modal fade show d-block modal-fondo text-center">
+  <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminar</h1>
