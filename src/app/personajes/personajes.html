@@ -2,15 +2,46 @@
 <section class="section-FaL">
 
     <!--Formulario-->
-    <form class="form-container" (ngSubmit)="guardarPersonaje()"> <input class="input-name" type="text"
-            placeholder="Nombre" [(ngModel)]="personaje.nombre" name="nombre" required /> <input class="input-edad"
-            type="text" placeholder="Edad" [(ngModel)]="personaje.edad" name="edad" required />
-            <label for="sexo">sexo: </label> 
-            <select class="input-sexo" name="sexo" id="sexo" [(ngModel)]="personaje.sexo" required>
-            <option value="femenino">femenino</option>
-            <option value="masculino">masculino</option>
-            <option value="otro">Otro</option>
-        </select> <button class="btn_form" type="submit"> {{ actualizado ? 'Actualizar' : 'Guardar' }} </button>
+    <form [formGroup]="personajesForm" class="form-container"  (ngSubmit)="guardarPersonaje()">
+        <input class="input-name" formControlName="nombre" type="text" placeholder="Nombre" [(ngModel)]="personaje.nombre" name="nombre" required />
+            @if (personajesForm.get("nombre")?.invalid && personajesForm.get("nombre")?.touched) {
+          @if (personajesForm.get("nombre")?.hasError("required")) {
+        <span class="error">El nombre es obligatorio</span>
+         }}
+
+        <input class="input-edad" formControlName="edad" type="text" placeholder="Edad" [(ngModel)]="personaje.edad" name="edad" required />
+             @if (personajesForm.get("edad")?.invalid && personajesForm.get("edad")?.touched) {
+          @if (personajesForm.get("edad")?.hasError("required")) {
+        <span class="error">La edad es obligatoria</span>
+         }}
+
+        <input class="input-altura" formControlName="altura" type="text" placeholder="Altura" [(ngModel)]="personaje.altura" name="altura" required />
+             @if (personajesForm.get("altura")?.invalid && personajesForm.get("altura")?.touched) {
+          @if (personajesForm.get("altura")?.hasError("required")) {
+        <span class="error">La altura es obligatoria</span>
+          }}
+
+        <input class="input-cabello" formControlName="cabello" type="text" placeholder="Color de cabello" [(ngModel)]="personaje.cabello" name="cabello" required />
+             @if (personajesForm.get("cabello")?.invalid && personajesForm.get("cabello")?.touched) {
+          @if (personajesForm.get("cabello")?.hasError("required")) {
+        <span class="error">El color de cabello es obligatorio</span>
+         }}
+
+            <label for="sexo">genero: </label>
+               <select class="input-sexo" formControlName="sexo" name="sexo" id="sexo" [(ngModel)]="personaje.sexo" required>
+               <option value="femenino">femenino</option>
+               <option value="masculino">masculino</option>
+               <option value="otro">Otro</option>
+            </select>
+            <br>
+             @if (personajesForm.get("sexo")?.invalid && personajesForm.get("sexo")?.touched) {
+          @if (personajesForm.get("sexo")?.hasError("required")) {
+        <span class="error">Es obligatorio seleccionar el genero del personaje</span>
+         }}
+
+         <input class="input-habilidades" formControlName="habilidades" type="text" placeholder="Habilidades" [(ngModel)]="personaje.habilidades" name="habilidades" required />
+
+      <button class="btn_form" type="submit" [disabled]="personajesForm.invalid"> {{ actualizado ? 'Actualizar' : 'Guardar' }} </button>
     </form>
     <br>
 
@@ -19,14 +50,20 @@
         <tr>
             <th>Nombre</th>
             <th>Edad</th>
+            <th>Altura</th>
+            <th>Color de cabello</th>
             <th>Sexo</th>
+            <th>Habilidades</th>
             <th>Acciones</th>
         </tr>
 
         <tr *ngFor="let p of personajes">
             <td>{{ p.nombre }}</td>
             <td>{{ p.edad }}</td>
+            <td>{{ p.altura}}</td>
+            <td>{{p.cabello}}</td>
             <td>{{ p.sexo}}</td>
+            <td>{{p.habilidades}}</td>
             <td>
                 <button (click)="actualizarPersonaje(p)">Editar</button>
                 <button (click)="eliminarPersonaje(p._id!)">Eliminar</button>

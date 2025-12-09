@@ -4,7 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { Personajes } from './personajes/personajes';
 
 
@@ -17,7 +17,8 @@ import { Personajes } from './personajes/personajes';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideBrowserGlobalErrorListeners()
@@ -25,3 +26,4 @@ import { Personajes } from './personajes/personajes';
   bootstrap: [App]
 })
 export class AppModule { }
+
