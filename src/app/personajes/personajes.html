@@ -1,0 +1,36 @@
+<h2 class="title-pag">Gravity falls personajes </h2>
+<section class="section-FaL">
+
+    <!--Formulario-->
+    <form class="form-container" (ngSubmit)="guardarPersonaje()"> <input class="input-name" type="text"
+            placeholder="Nombre" [(ngModel)]="personaje.nombre" name="nombre" required /> <input class="input-edad"
+            type="text" placeholder="Edad" [(ngModel)]="personaje.edad" name="edad" required />
+            <label for="sexo">sexo: </label> 
+            <select class="input-sexo" name="sexo" id="sexo" [(ngModel)]="personaje.sexo" required>
+            <option value="femenino">femenino</option>
+            <option value="masculino">masculino</option>
+            <option value="otro">Otro</option>
+        </select> <button class="btn_form" type="submit"> {{ actualizado ? 'Actualizar' : 'Guardar' }} </button>
+    </form>
+    <br>
+
+    <!--tabla (lista de personajes)-->
+    <table border="1" class="table-list">
+        <tr>
+            <th>Nombre</th>
+            <th>Edad</th>
+            <th>Sexo</th>
+            <th>Acciones</th>
+        </tr>
+
+        <tr *ngFor="let p of personajes">
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.edad }}</td>
+            <td>{{ p.sexo}}</td>
+            <td>
+                <button (click)="actualizarPersonaje(p)">Editar</button>
+                <button (click)="eliminarPersonaje(p._id!)">Eliminar</button>
+            </td>
+        </tr>
+    </table>
+</section>

@@ -1,0 +1,122 @@
+/* ----- TIPOGRAFÍA Y AMBIENTE GENERAL ----- */
+.section-FaL {
+    font-family: "IM Fell English SC", serif;
+    padding: 20px;
+    min-height: 100vh;
+    background: url("https://m.media-amazon.com/images/I/91Hub05SE1L._SL1500_.jpg") center/cover no-repeat fixed;
+    color: #3b2c19;
+}
+
+/* ----- TÍTULO ----- */
+.title-pag {
+    text-align: center;
+    font-size: 2.4rem;
+    color: #3e2714;
+    text-shadow: 0px 2px 4px rgba(0,0,0,0.4);
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+/* ----- FORMULARIO TIPO DIARIO ----- */
+.form-container {
+    background: rgba(255, 241, 207, 0.85);
+    padding: 25px;
+    border-radius: 10px;
+    border: 2px solid #7b5b36;
+    box-shadow: 0 0 14px rgba(50, 34, 18, 0.4);
+    max-width: 520px;
+    margin: 0 auto;
+    backdrop-filter: blur(1px);
+}
+
+/* Inputs corregidos (ya no se ven "salidos") */
+.form-container input,
+.form-container select {
+    width: 95%;
+    padding: 8px 12px;
+    margin-bottom: 14px;
+
+    border-radius: 6px;
+    border: 1.5px solid #7b5b36;
+
+    background: rgba(255, 246, 227, 0.82);
+    color: #3b2c19;
+
+    font-size: 17px;
+    font-family: "IM Fell English SC", serif;
+
+    box-shadow: inset 0 0 4px rgba(80, 60, 30, 0.2);
+}
+
+.form-container label {
+    margin-bottom: 5px;
+    display: block;
+    font-size: 17px;
+    color: #3b2c19;
+    font-weight: bold;
+}
+
+/* Botón Guardar / Actualizar */
+.btn_form {
+    width: 100%;
+    padding: 12px;
+    background: #7b5b36;
+    border: none;
+    border-radius: 8px;
+    color: #fff3dc;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s;
+    letter-spacing: 1px;
+}
+
+.btn_form:hover {
+    background: #a07849;
+    box-shadow: 0 0 8px rgba(60, 45, 25, 0.5);
+}
+
+/* ----- TABLA ESTILO DIARIO ----- */
+.table-list {
+    width: 100%;
+    max-width: 850px;
+    margin: 30px auto;
+    border-collapse: collapse;
+
+    background: rgba(255, 241, 207, 0.85);
+    border: 2px solid #7b5b36;
+    box-shadow: 0px 4px 10px rgba(20, 14, 8, 0.4);
+}
+
+.table-list th {
+    background: #7b5b36;
+    color: #fff2d0;
+    padding: 12px;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.table-list td {
+    padding: 10px;
+    border: 1px solid #b89c6a;
+    font-size: 17px;
+}
+
+/* Botones de acción */
+.table-list button {
+    padding: 6px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    background: #a07849;
+    color: #fff2d0;
+    font-family: "IM Fell English SC", serif;
+    transition: 0.3s;
+}
+
+.table-list button:hover {
+    background: #c89a5e;
+    box-shadow: 0 0 6px rgba(60, 45, 25, 0.5);
+}
