@@ -13,7 +13,9 @@ export class Personajes {
   personajes: Personaje[] = [];
   personaje: Personaje = { nombre: '', edad: '', altura: '', cabello: '', sexo: '', habilidades: ''};
   actualizado = false;
-  idActualizacion: string | null = null;
+  idActualizacion:  string | null = null;
+  modalEliminar: boolean = false;
+  modalEditar: boolean = false;
 
   //faromulario reactivo
   fb = inject(FormBuilder);
@@ -29,8 +31,16 @@ export class Personajes {
 
 
   constructor(private personajesService: PersonajesService) {
+   }
+
+
+   abrirModalEliminar(id: string){
 
    }
+   abrirModalActualizar(id: string){
+
+   }
+
 
   ngOnInit(): void {
     this.getPersonajes();
