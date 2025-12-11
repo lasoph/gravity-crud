@@ -2,7 +2,7 @@
 <section class="section-FaL">
 
   <!--Formulario-->
-  <form [formGroup]="personajesForm" class="form-container" (ngSubmit)="guardarPersonaje()">
+  <form [formGroup]="personajesForm" id="form" class="form-container" (ngSubmit)="guardarPersonaje()">
     @if (personajesForm.get("nombre")?.hasError("required")) {
     <span class="error">El nombre es obligatorio</span>
     }
@@ -84,11 +84,10 @@
       placeholder="Habilidades"
       [(ngModel)]="personaje.habilidades"
       name="habilidades"
-      required
     />
 
     <button class="btn_form" type="submit" [disabled]="personajesForm.invalid">
-      {{ actualizado ? 'Actualizar' : 'Guardar' }}
+      {{ actualizado ? 'Editar' : 'Guardar' }}
     </button>
   </form>
   <br />
@@ -124,20 +123,48 @@
   <!-- Button trigger modal -->
 
 <!-- Modal -->
-<div *ngIf="modalEliminar==true" class="modal fade show d-block modal-fondo text-center">
-  <div class="modal-dialog modal-dialog-centered">
+<!-- Modal Eliminar -->
+<div *ngIf="modalEliminar" class="modal-fondo d-flex justify-content-center align-items-center">
+  <div class="modal-dialog">
     <div class="modal-content">
+
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="staticBackdropLabel">Eliminar</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h1 class="modal-title fs-5">Eliminar personaje</h1>
+        <button type="button" class="btn-close" (click)="cerrarModalEliminar()"></button>
       </div>
+
       <div class="modal-body">
-        <p>Esta seguro que desea eliminar el personaje?</p>
+        <p>¿Está seguro que desea eliminar a {{ personajeSeleccionado?.nombre }}?</p>
       </div>
+
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
+        <button type="button" class="btn-modal-c" (click)="cerrarModalEliminar()">Cancelar</button>
+        <button type="button" class="btn-modal" (click)="eliminarPersonaje(personajeSeleccionado._id)">Eliminar</button>
       </div>
+
+    </div>
+  </div>
+</div>
+
+<!--modal actualizar-->
+<div *ngIf="modalEditar" class="modal-fondo d-flex justify-content-center align-items-center">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <div class="modal-header">
+        <h1 class="modal-title fs-5">Editar personaje</h1>
+        <button type="button" class="btn-close" (click)="cerrarModalActualizar()"></button>
+      </div>
+
+      <div class="modal-body">
+        <p>¿Está seguro que desea editar a {{ personajeSeleccionado?.nombre }}?</p>
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn-modal-c" (click)="cerrarModalActualizar()">Cancelar</button>
+        <button type="button" class="btn-modal" (click)="actualizarPersonaje(personajeSeleccionado)"><a href="#form">Editar</a></button>
+      </div>
+
     </div>
   </div>
 </div>

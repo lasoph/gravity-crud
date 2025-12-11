@@ -145,3 +145,51 @@
 span{
 padding-bottom: 100px;
 }
+
+.modal-fondo {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal-content{
+    background-color: #c2b8a9;
+    padding: 20px;
+    border-radius: 10px;
+}
+a{
+    text-decoration: none;
+    list-style: none;
+       color: #fff2d0;
+}
+
+.btn-modal{
+     padding: 6px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    background: #a07849;
+    color: #fff2d0;
+    font-family: "IM Fell English SC", serif;
+    transition: 0.3s;
+}
+
+
+.btn-modal-c{
+     padding: 6px 10px;
+    margin: 2px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+
+    background: #fff2d0;
+    color: #a07849;
+    font-family: "IM Fell English SC", serif;
+    transition: 0.3s;
+}

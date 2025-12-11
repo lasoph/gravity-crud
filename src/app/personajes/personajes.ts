@@ -34,22 +34,26 @@ export class Personajes {
   constructor(private personajesService: PersonajesService) {
    }
 
-
-   abrirModalEliminar(personaje: any){
-    this.personajeSeleccionado= personaje;
-    this.modalEliminar==true;
-   }
    abrirModalActualizar(personaje: any){
     this.personajeSeleccionado= personaje;
-    this.modalEditar==false;
+    this.modalEditar=true;
    }
 
-   cerrarModalE(){
-    this.modalEliminar=false;
-   }
-   cerrarModalA(){
+   cerrarModalActualizar(){
     this.modalEditar=false;
+    this.personajeSeleccionado = null;
    }
+
+   abrirModalEliminar(personaje: any) {
+     this.personajeSeleccionado = personaje;
+     this.modalEliminar = true;
+   }
+   
+   cerrarModalEliminar() {
+     this.modalEliminar = false;
+     this.personajeSeleccionado = null;
+   }
+
 
 
   ngOnInit(): void {
@@ -83,11 +87,15 @@ export class Personajes {
     this.actualizado = true;
     this.idActualizacion = p._id!;
     this.personaje = { nombre: p.nombre, edad: p.edad, altura: p.altura, cabello: p.cabello, sexo: p.sexo, habilidades: p.habilidades };
+      this.personajeSeleccionado = null;
+      this.modalEditar=false;
   }
 
   eliminarPersonaje(id: string) {
     this.personajesService.eliminarPersonaje(id).subscribe(() => {
       this.getPersonajes();
     });
+     this.modalEliminar = false;
+     this.personajeSeleccionado = null;
   }
 }
