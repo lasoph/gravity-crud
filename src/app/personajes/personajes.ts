@@ -69,7 +69,8 @@ export class Personajes {
   guardarPersonaje() { if (!this.actualizado)
     { this.personajesService.crearPersonaje(this.personaje).subscribe(() =>
       { this.personaje = { nombre: '', edad: '', altura: '', cabello: '', sexo: '', habilidades: '' };
-      this.getPersonajes(); });
+      this.getPersonajes(); 
+    alert("el personaje se guardo correctamente")});
      } else {
       if (this.idActualizacion) {
         this.personajesService.actualizarPersonaje(this.idActualizacion, this.personaje).subscribe(() => {
@@ -77,6 +78,7 @@ export class Personajes {
           this.idActualizacion = null;
           this.personaje = { nombre: '', edad: '', altura: '', cabello: '', sexo: '', habilidades: '' };
            this.getPersonajes();
+           alert("el personaje se actualizo correctamente")
            });
           }
         }
@@ -97,5 +99,6 @@ export class Personajes {
     });
      this.modalEliminar = false;
      this.personajeSeleccionado = null;
+     alert("el personaje se elimino")
   }
 }
